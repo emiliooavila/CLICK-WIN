@@ -144,3 +144,15 @@ body::before {
 .drag-hint   { color: var(--gray-5); }
 .p-del       { color: var(--gray-5); }
 .p-del:hover { color: var(--danger); background: #fdecea; }
+
+/* === RESPONSIVE === */
+@media (max-width: 575px) {
+  .participant-item { padding: 8px 10px; }
+  .drum-reel        { width: 70px; height: 70px; font-size: 1rem; }
+  .p-name           { font-size: .82rem; }
+}
+
+@media (min-width: 768px) {
+  .participants-list { min-height: 200px; }
+  .add-row .field-input { font-size: 1rem; }
+}

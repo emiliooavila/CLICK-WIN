@@ -97,4 +97,15 @@ body::before {
   display: flex; align-items: center;
   justify-content: center; font-size: .65rem;
 }
+
 .excl-item.picked .excl-item-check::after { content: '✓'; }
+/* === RESPONSIVE === */
+@media (max-width: 575px) {
+  .excl-person-name { font-size: .78rem; }
+  .excl-select-btn  { font-size: .78rem; padding: 9px 11px; }
+  .modal-box        { padding: 20px 16px; }
+}
+
+@media (min-width: 768px) {
+  .excl-person { margin-bottom: 18px; }
+}
