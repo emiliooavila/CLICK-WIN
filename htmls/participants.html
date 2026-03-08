@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Participantes – Click &amp; Win</title>
+  <link rel="icon" type="image/png" href="/CLICK&WIN-FAVICON.png" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Raleway:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+
+  <div id="appHeader"></div>
+
+  <main class="app-main">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-md-7 col-lg-5">
+
+          <div class="screen-title">Participantes</div>
+          <p class="screen-sub">
+            Agrega a todos los que participan. Arrastra para reordenar.
+          </p>
+
+          <div class="card-panel">
+
+            <label class="field-label">¿Con quién vas a sortear nombres?</label>
+            <p class="drag-hint">
+              <i class="bi bi-grip-vertical"></i>
+              Arrastra las tarjetas para reordenar
+            </p>
+
+            <ul class="participants-list" id="participantsList"></ul>
+            
+            <div class="add-row">
+              <input
+                type="text"
+                id="newName"
+                class="field-input"
+                placeholder="Añadir nombre"
+                maxlength="50"
+                autocomplete="off"
+              />
+              <button class="btn-icon" id="btnAdd" aria-label="Agregar">
+                <i class="bi bi-plus-lg"></i>
+              </button>
+            </div>
+
+            <div class="nav-row">
+              <button class="btn-secondary" id="btnBack">
+                <i class="bi bi-arrow-left"></i>
+              </button>
+              <button class="btn-primary" id="btnContinue">
+                Continuar <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="toastZone" class="toast-zone"></div>
+  <script type="module" src="../js/participants.ts"></script>
+</body>
+</html>
