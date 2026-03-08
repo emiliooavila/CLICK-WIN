@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Organizador – Click &amp; Win</title>
+  <link rel="icon" type="image/png" href="/CLICK-WIN/CLICK&WIN-FAVICON.png" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Raleway:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <script type="module" crossorigin src="/CLICK-WIN/assets/organizer-Bb53m3S3.js"></script>
+  <link rel="modulepreload" crossorigin href="/CLICK-WIN/assets/storage-Chakis11.js">
+  <link rel="modulepreload" crossorigin href="/CLICK-WIN/assets/shared-DvBB2LqT.js">
+  <link rel="modulepreload" crossorigin href="/CLICK-WIN/assets/participants-CWyP03pY.js">
+  <link rel="modulepreload" crossorigin href="/CLICK-WIN/assets/header-DZdbKMvJ.js">
+  <link rel="stylesheet" crossorigin href="/CLICK-WIN/assets/storage-D4wgWwwc.css">
+  <link rel="stylesheet" crossorigin href="/CLICK-WIN/assets/organizer-BqsXVlDW.css">
+</head>
+<body>
+  <div id="appHeader"></div>
+
+  <main class="app-main">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-md-7 col-lg-5">
+
+          <div class="screen-title">¿Quién organiza el intercambio?</div>
+          <p class="screen-sub">Indica tu nombre y si te incluyes en el sorteo.</p>
+
+          <div class="card-panel">
+
+            <label class="field-label" for="organizerName">Tu nombre</label>
+            <div class="input-wrap tw-mb-2">
+              <input
+                type="text"
+                id="organizerName"
+                class="field-input"
+                placeholder="Ej. Emilio Avila"
+                maxlength="50"
+                autocomplete="off"
+              />
+              <button class="clear-btn" id="btnClear" aria-label="Limpiar">×</button>
+            </div>
+
+            <label class="check-wrap">
+              <input type="checkbox" id="includeOrganizer" checked />
+              <span>Inclúyeme (el organizador) en el sorteo</span>
+            </label>
+
+            <div class="nav-row tw-mt-6" style="justify-content:flex-end">
+              <button class="btn-primary" id="btnContinue">
+                Continuar <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="toastZone" class="toast-zone"></div>
+</body>
+</html>

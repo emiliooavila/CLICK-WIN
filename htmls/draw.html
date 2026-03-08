@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteo - Click &amp; Win</title>
+    <link rel="icon" type="image/png" href="/CLICK-WIN/CLICK&WIN-FAVICON.png" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Raleway:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <script type="module" crossorigin src="/CLICK-WIN/assets/draw-BEzQwOG2.js"></script>
+  <link rel="modulepreload" crossorigin href="/CLICK-WIN/assets/storage-Chakis11.js">
+  <link rel="modulepreload" crossorigin href="/CLICK-WIN/assets/shared-DvBB2LqT.js">
+  <link rel="modulepreload" crossorigin href="/CLICK-WIN/assets/exclusions-DrhWUcSq.js">
+  <link rel="modulepreload" crossorigin href="/CLICK-WIN/assets/header-DZdbKMvJ.js">
+  <link rel="stylesheet" crossorigin href="/CLICK-WIN/assets/storage-D4wgWwwc.css">
+  <link rel="stylesheet" crossorigin href="/CLICK-WIN/assets/draw-xsPLJGUi.css">
+</head>
+<body>
+    <div id="appHeader"></div>
+
+  <main class="app-main">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-md-7 col-lg-5">
+
+          <!-- Maquina de sorteo -->
+          <section id="slotSection">
+            <div class="draw-stage">
+              <div class="draw-title">🎰 Sorteo</div>
+              <p class="draw-sub">
+                Presiona el botón para revelar quién le regala a quién
+              </p>
+
+              <div class="drum-wrapper">
+                <div class="drum-reel" id="drum0">🎁</div>
+                <div class="drum-reel" id="drum1">🎀</div>
+                <div class="drum-reel" id="drum2">⭐</div>
+              </div>
+
+              <button class="btn-draw" id="btnReveal">
+                <i class="bi bi-shuffle"></i> ¡Sortear!
+              </button>
+            </div>
+          </section>
+
+          <!-- Resultados -->
+          <section id="resultsSection" style="display:none;">
+            <div class="screen-title tw-mb-1">🎉 Resultados</div>
+            <p class="screen-sub tw-mb-4">
+              Cada persona regala a quien aparece a su derecha.
+            </p>
+
+            <div class="results-grid" id="resultsGrid"></div>
+
+            <div class="draw-actions">
+              <button class="btn-draw-secondary" id="btnNewDraw">
+                <i class="bi bi-arrow-repeat"></i> Resortear
+              </button>
+              <button class="btn-draw-secondary" id="btnBack">
+                <i class="bi bi-arrow-left"></i> Ver resumen
+              </button>
+              <button class="btn-draw-secondary" id="btnRestart">
+                <i class="bi bi-house"></i> Nuevo evento
+              </button>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+  <div id="toastZone" class="toast-zone"></div>
+</body>
+</html>

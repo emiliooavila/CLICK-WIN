@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presupuesto – Click &amp; Win</title>
+  <link rel="icon" type="image/png" href="/CLICK-WIN/CLICK&WIN-FAVICON.png" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Raleway:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <script type="module" crossorigin src="/CLICK-WIN/assets/budget-CgS_YpK5.js"></script>
+  <link rel="modulepreload" crossorigin href="/CLICK-WIN/assets/storage-Chakis11.js">
+  <link rel="modulepreload" crossorigin href="/CLICK-WIN/assets/shared-DvBB2LqT.js">
+  <link rel="modulepreload" crossorigin href="/CLICK-WIN/assets/header-DZdbKMvJ.js">
+  <link rel="stylesheet" crossorigin href="/CLICK-WIN/assets/storage-D4wgWwwc.css">
+  <link rel="stylesheet" crossorigin href="/CLICK-WIN/assets/budget-DyQiKhXv.css">
+</head>
+<body>
+
+  <div id="appHeader"></div>
+
+  <main class="app-main">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-md-7 col-lg-5">
+
+          <div class="card-panel">
+            <h3 class="card-title">
+              ¿Cuánto deberían gastar los participantes?
+            </h3>
+
+            <div class="row g-2 mb-3">
+              <div class="col-6 col-sm-4">
+                <button class="btn-chip tw-w-full" data-amount="500">$500</button>
+              </div>
+              <div class="col-6 col-sm-4">
+                <button class="btn-chip tw-w-full" data-amount="300">$300</button>
+              </div>
+              <div class="col-6 col-sm-4">
+                <button class="btn-chip tw-w-full" data-amount="200">$200</button>
+              </div>
+              <div class="col-6 col-sm-4">
+                <button class="btn-chip tw-w-full" data-amount="150">$150</button>
+              </div>
+              <div class="col-6 col-sm-4">
+                <button class="btn-chip tw-w-full" data-amount="100">$100</button>
+              </div>
+              <div class="col-6 col-sm-4">
+                <button class="btn-chip tw-w-full" id="btnOtroBudget">
+                  Otro <i class="bi bi-pencil-fill"></i>
+                </button>
+              </div>
+            </div>
+
+            <div id="customBudgetWrap" style="display:none;">
+              <label class="field-label" for="customBudget">
+                Presupuesto personalizado
+              </label>
+              <input
+                type="number"
+                id="customBudget"
+                class="field-input"
+                placeholder="Introduce un importe..."
+                min="1"
+              />
+            </div>
+
+            <div class="nav-row">
+              <button class="btn-secondary" id="btnBack">
+                <i class="bi bi-arrow-left"></i>
+              </button>
+              <button class="btn-primary" id="btnContinue">
+                Ver resumen <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="toastZone" class="toast-zone"></div>
+</body>
+</html>
