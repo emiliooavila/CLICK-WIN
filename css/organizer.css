@@ -1,0 +1,37 @@
+.card-panel {
+  animation: fadeUp .35s ease both;
+}
+
+body {
+  background: radial-gradient(
+    ellipse at 30% 20%,
+    #1a3d28 0%,
+    #0d1f15 50%,
+    #060f0a 100%
+  );
+  min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(201,168,76,.04) 0,
+    rgba(201,168,76,.04) 1px,
+    transparent 0,
+    transparent 50%
+  );
+  background-size: 30px 30px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app-header,
+.app-main {
+  position: relative;
+  z-index: 1;
+}
+
+.screen-title { color: var(--white); }
+.screen-sub   { color: rgba(255,255,255,.6); }
