@@ -1,1 +1,0 @@
-import"./storage-Chakis11.js";function c(n,e="success"){const o=document.getElementById("toastZone");if(!o)return;const t=document.createElement("div");t.className=`toast-msg${e==="error"?" err":""}`,t.textContent=n,o.appendChild(t),setTimeout(()=>t.remove(),3200)}function r(n){const e=document.getElementById(n);e&&(e.value="",e.focus())}export{r as c,c as t};
