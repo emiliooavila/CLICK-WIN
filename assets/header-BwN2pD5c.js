@@ -2,7 +2,7 @@ import{B as d}from"./storage-CiY_4-N5.js";function n({step:e,total:a,progress:r}
     <header class="app-header">
       <div class="inner">
         <div class="brand">
-          <img src="${d}CLICKWIN-LOGO-HEADERjpg" alt="Click & Win" class="brand-logo" />
+          <img src="${d}CLICKWIN-LOGO-HEADER.jpg" alt="Click & Win" class="brand-logo" />
         </div>
         <span class="step-indicator">Paso ${e} de ${a}</span>
       </div>
