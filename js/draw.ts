@@ -25,14 +25,12 @@ function spinDrums(onDone: () => void): void {
       reel.textContent = SYMBOLS[frame++ % SYMBOLS.length];
     }, 80);
 
-    /* Cada reel se bloquea escalonado */
     setTimeout(() => {
       clearInterval(iv);
       reel.textContent = SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)];
       reel.classList.remove('spinning');
       reel.classList.add('locked');
 
-      /* Cuando el último se bloquea, ejecuta el sorteo */
       if (i === 2) setTimeout(onDone, 400);
     }, 900 + i * 500);
   });
@@ -80,7 +78,8 @@ function launchConfetti(): void {
 }
 
 function renderResults(results: ReturnType<typeof loadDrawResults>): void {
-  const grid = document.getElementById('resultsGrid')!;
+  const grid = document.getElementById('resultsGrid');
+  if (!grid) return;
   grid.innerHTML = '';
 
   results.forEach((r, i) => {
@@ -95,15 +94,19 @@ function renderResults(results: ReturnType<typeof loadDrawResults>): void {
     grid.appendChild(card);
   });
 
-  document.getElementById('slotSection')!.style.display    = 'none';
-  document.getElementById('resultsSection')!.style.display = 'block';
+  const slotSection    = document.getElementById('slotSection');
+  const resultsSection = document.getElementById('resultsSection');
+  if (slotSection)    slotSection.style.display    = 'none';
+  if (resultsSection) resultsSection.style.display = 'block';
+
   launchConfetti();
 }
 
 function runDraw(): void {
   if (revealed) return;
 
-  const btn = document.getElementById('btnReveal')!;
+  const btn = document.getElementById('btnReveal');
+  if (!btn) return;
   btn.classList.add('spinning');
 
   spinDrums(() => {
@@ -134,17 +137,65 @@ function runDraw(): void {
 }
 
 function resetDrums(): void {
-  [0, 1, 2].forEach(i => {
-    const r = document.getElementById(`drum${i}`)!;
+  [0, 1, 2].forEach((i) => {
+    const r = document.getElementById(`drum${i}`);
+    if (!r) return;
     r.classList.remove('locked', 'spinning');
     r.textContent = ['🎁', '🎀', '⭐'][i];
   });
 }
 
+function showConfirm(msg: string, onAccept: () => void): void {
+  const overlay = document.createElement('div');
+  overlay.style.cssText = `
+    position:fixed; inset:0; background:rgba(0,0,0,.65);
+    z-index:999; display:flex; align-items:center;
+    justify-content:center; padding:20px;
+  `;
+  overlay.innerHTML = `
+    <div style="
+      background:#1a3d28;
+      border:2px solid rgba(201,168,76,.4);
+      border-radius:16px; padding:28px;
+      max-width:340px; width:100%;
+      text-align:center;
+      font-family:'Raleway',sans-serif;
+      box-shadow: 0 8px 38px rgba(0,0,0,.4);
+    ">
+      <p style="font-size:.95rem; color:#fff; margin-bottom:20px; line-height:1.5;">
+        ${msg}
+      </p>
+      <div style="display:flex; gap:10px; justify-content:center;">
+        <button id="confirmNo" style="
+          padding:10px 24px; border-radius:8px; font-weight:700;
+          border:2px solid #C9A84C; background:transparent;
+          color:#C9A84C; cursor:pointer; font-size:.9rem;
+          font-family:'Raleway',sans-serif;
+        ">Cancelar</button>
+        <button id="confirmYes" style="
+          padding:10px 24px; border-radius:8px; font-weight:700;
+          border:2px solid #C9A84C;
+          background:linear-gradient(135deg,#C9A84C,#a07830);
+          color:#0d1f15; cursor:pointer; font-size:.9rem;
+          font-family:'Raleway',sans-serif;
+        ">Sí, borrar</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+
+  overlay.querySelector('#confirmNo')
+    ?.addEventListener('click', () => overlay.remove());
+  overlay.querySelector('#confirmYes')
+    ?.addEventListener('click', () => {
+      overlay.remove();
+      onAccept();
+    });
+}
+
 function init(): void {
   renderHeader({ step: 6, total: 6, progress: 100 });
 
-  /* Si ya hay resultados guardados, mostrarlos directamente */
   const existing = loadDrawResults();
   if (existing.length > 0) {
     revealed = true;
@@ -160,24 +211,25 @@ function init(): void {
     ?.addEventListener('click', () => {
       saveDrawResults([]);
       revealed = false;
-      document.getElementById('slotSection')!.style.display    = 'block';
-      document.getElementById('resultsSection')!.style.display = 'none';
+      const slotSection    = document.getElementById('slotSection');
+      const resultsSection = document.getElementById('resultsSection');
+      if (slotSection)    slotSection.style.display    = 'block';
+      if (resultsSection) resultsSection.style.display = 'none';
       resetDrums();
     });
 
-  /* Volver al resumen */
   document.getElementById('btnBack')
     ?.addEventListener('click', () => {
       window.location.href = '/htmls/summary.html';
     });
 
-  /* Nuevo evento */
+
   document.getElementById('btnRestart')
     ?.addEventListener('click', () => {
-      if (confirm('¿Empezar un nuevo evento desde cero?')) {
+      showConfirm('¿Empezar un nuevo evento desde cero?', () => {
         clearAll();
         window.location.href = '/index.html';
-      }
+      });
     });
 }
 
