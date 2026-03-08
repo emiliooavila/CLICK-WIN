@@ -4,6 +4,7 @@ import { fileURLToPath, URL } from 'url';
 const r = (path: string) => fileURLToPath(new URL(path, import.meta.url));
 
 export default defineConfig({
+  base: '/CLICK-WIN/',
   build: {
     rollupOptions: {
       input: {
