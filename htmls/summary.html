@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen - Click &amp; Win</title>
+    <link rel="icon" type="image/png" href="/CLICK&WIN-FAVICON.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Raleway:wght@400;500;600;700;800&display=swap">
+</head>
+<body>
+    <div id="appHeader"></div>
+    <main class="app-main">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+
+          <div class="screen-title">Resumen del evento</div>
+          <p class="screen-sub">
+            Todo listo. Revisa los datos antes de sortear.
+          </p>
+
+          <!-- Datos del evento leídos de localStorage -->
+          <div class="card-panel tw-mb-4">
+
+            <div class="summary-section">
+              <div class="sum-label">Organizador</div>
+              <div class="sum-value" id="sumOrganizer">—</div>
+            </div>
+
+            <div class="summary-section">
+              <div class="sum-label">Celebracion</div>
+              <div class="sum-value" id="sumEvent">—</div>
+            </div>
+
+            <div class="summary-section">
+              <div class="sum-label">Fecha</div>
+              <div class="sum-value" id="sumDate">—</div>
+            </div>
+
+            <div class="summary-section">
+              <div class="sum-label">Presupuesto</div>
+              <div class="sum-value" id="sumBudget">—</div>
+            </div>
+
+            <div class="summary-section">
+              <div class="sum-label">Participantes</div>
+              <ul class="sum-list" id="sumParticipants"></ul>
+            </div>
+
+            <div class="summary-section last">
+              <div class="sum-label" id="sumExclTitle">Exclusiones</div>
+              <ul class="sum-list" id="sumExclusions"></ul>
+            </div>
+
+          </div>
+
+          <!-- Acciones -->
+          <div class="row g-3">
+            <div class="col-12 col-sm-6">
+              <div class="action-card" id="btnDraw">
+                <div class="ac-title">Realizar Sorteo</div>
+                <div class="ac-sub">Sorteo animado con resultados</div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="action-card" id="btnRestart">
+                <div class="ac-title">Nuevo sorteo</div>
+                <div class="ac-sub">Borrar datos y empezar de cero</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="toastZone" class="toast-zone"></div>
+  <script type="module" src="../js/summary.ts"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+body {
+  background: radial-gradient(
+    ellipse at 30% 20%,
+    #1a3d28 0%,
+    #0d1f15 50%,
+    #060f0a 100%
+  );
+  min-height: 100vh;
+}
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(201,168,76,.04) 0,
+    rgba(201,168,76,.04) 1px,
+    transparent 0,
+    transparent 50%
+  );
+  background-size: 30px 30px;
+  pointer-events: none;
+  z-index: 0;
+}
+.app-header, .app-main { position: relative; z-index: 1; }
+
+.screen-title { color: var(--white); }
+.screen-sub   { color: rgba(255,255,255,.6); }
+
+.card-panel {
+  background: var(--white);
+  margin-bottom: 20px;
+}
+
+.summary-section {
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--gray-2);
+}
+.summary-section.last {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.sum-label {
+  font-size: .72rem; font-weight: 700;
+  color: var(--green); text-transform: uppercase;
+  letter-spacing: .8px; margin-bottom: 4px;
+}
+.sum-value {
+  font-family: var(--font-d);
+  font-size: 1.2rem; font-weight: 700;
+  color: var(--dark);
+}
+
+.sum-list { list-style: none; margin-top: 6px; }
+.sum-list li {
+  font-size: .87rem; color: var(--gray-7);
+  padding: 4px 0;
+  display: flex; align-items: center; gap: 7px;
+}
+.sum-list li::before {
+  content: '•';
+  color: var(--green);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.action-card {
+  background: rgba(255,255,255,.06);
+  border: 2px solid rgba(255,255,255,.12);
+  border-radius: var(--r-lg);
+  padding: 24px 20px;
+  box-shadow: var(--sh-sm);
+  transition: var(--t); cursor: pointer;
+  text-align: center;
+  animation: fadeUp .35s ease both;
+}
+.action-card:hover {
+  border-color: var(--gold);
+  background: rgba(201,168,76,.08);
+  transform: translateY(-2px);
+  box-shadow: var(--sh-md);
+}
+.ac-icon  {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+  display: block;
+}
+.ac-title {
+  font-family: var(--font-d);
+  font-size: 1.15rem; font-weight: 700;
+  color: var(--white); margin-bottom: 4px;
+}
+.ac-sub {
+  font-size: .82rem;
+  color: rgba(255,255,255,.5);
+}
