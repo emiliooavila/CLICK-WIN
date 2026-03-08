@@ -2,6 +2,7 @@ import './shared';
 import '../css/exclusions.css';
 import { loadParticipants, loadExclusions } from '../ts/storage';
 import { setExclusion, clearExclusions } from '../ts/exclusions';
+import { toast } from './shared';
 import { renderHeader } from './header';
 
 let useExclusions   = false;
